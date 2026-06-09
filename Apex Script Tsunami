@@ -13,14 +13,14 @@ local Window = Rayfield:CreateWindow({
     KeySystem = true,
     KeySettings = {
         Title = "Key System",
-        Subtitle = "Verify or Get Key from Discord",
-        Note = "Join our Discord to get the official key!",
+        Subtitle = "To get the link check ur clipboard link is copied", -- Modifié ici
+        Note = "Join our discord to get a permanent free key", -- Modifié ici
         FileName = "ApexHubKey",
         SaveKey = true,
         GrabKeyFromSite = false,
         Key = {"KA1RYCLb31ASg6i8RcT1uu6da"}, -- Ta clé exacte
         
-        -- C'EST ICI : Le bouton Get Key qui copie le Discord dans la fenêtre de clé
+        -- Le bouton Get Key juste à côté pour dépanner si besoin
         Actions = {
             [1] = {
                 Text = "Get Key",
@@ -124,7 +124,7 @@ MainTab:CreateToggle({
     end
 })
 
---// SECTION DISCORD (Juste du texte informatif, pas de bouton)
+--// SECTION DISCORD
 MainTab:CreateSection("Discord")
 MainTab:CreateParagraph({Title = "Join Our Discord", Content = "discord.gg/QssFzeGhZZ"})
 
