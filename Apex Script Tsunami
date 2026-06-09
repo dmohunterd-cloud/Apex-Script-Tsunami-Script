@@ -1,6 +1,11 @@
 --// Rayfield UI Load
 local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
 
+-- Copie automatique instantanée dès le lancement
+pcall(function()
+    setclipboard("https://discord.gg/QssFzeGhZZ")
+end)
+
 local Window = Rayfield:CreateWindow({
     Name = "Apex Script Community",
     LoadingTitle = "Loading Apex Hub...",
@@ -14,7 +19,8 @@ local Window = Rayfield:CreateWindow({
         SaveKey = true,
         GrabKeyFromSite = false,
         Key = {"KA1RYCLb31ASg6i8RcT1uu6da"}, -- Ta clé exacte
-        -- Uniquement le bouton Get Key ici
+        
+        -- C'EST ICI : Le bouton Get Key qui copie le Discord dans la fenêtre de clé
         Actions = {
             [1] = {
                 Text = "Get Key",
@@ -32,11 +38,6 @@ local Window = Rayfield:CreateWindow({
         }
     }
 })
-
--- Copie automatique du lien au lancement
-pcall(function()
-    setclipboard("https://discord.gg/QssFzeGhZZ")
-end)
 
 --// Services
 local Players = game:GetService("Players")
@@ -123,20 +124,9 @@ MainTab:CreateToggle({
     end
 })
 
---// COPIE DU LIEN DISCORD
-MainTab:CreateButton({
-    Name = "Copy Discord Link (Get Key)",
-    Callback = function()
-        pcall(function()
-            setclipboard("https://discord.gg/QssFzeGhZZ")
-            Rayfield:Notify({
-                Title = "Discord",
-                Content = "Lien Discord copié !",
-                Duration = 2
-            })
-        end)
-    end
-})
+--// SECTION DISCORD (Juste du texte informatif, pas de bouton)
+MainTab:CreateSection("Discord")
+MainTab:CreateParagraph({Title = "Join Our Discord", Content = "discord.gg/QssFzeGhZZ"})
 
 --// LOOPS
 RunService.RenderStepped:Connect(function()
